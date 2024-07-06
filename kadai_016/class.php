@@ -1,49 +1,38 @@
-<!DOCTYPE html>
-<html lang="ja">
+<?php
+class Food {
+    private $name;
+    private $price;
+    public function show_price(int $price) {
+        $this->price = $price;
+    }
+    public function __construct(string $name, int $price) {
+        $this->name = $name;
+        $this->price =$price;
+    }   
+}
+$food = new Food('potato', 250);
+print_r($food);
+echo '<br>';
 
-<head>
-    <meta charset="UTF-8">
-    <title>kadai_016</title>
-</head>
+class Animal {
+    private $name;
+    private $height;
+    private $weight;
+    public function show_height(int $height) {
+        $this->height = $height;
+    }
+    public function __construct(string $name, int $height, int $weight) {
+            $this->name = $name; 
+            $this->height = $height;
+            $this->weight = $weight;
+    }     
+}
 
-<body>
-    <p>
-        <?php
-        // クラスを定義する
-        class Food {
-            // プロパティを定義する
-            public $name;
-            public $price;
+$animal= new Animal('dog', 60, 5000);
+print_r($animal);
 
-            // コンストラクタを定義する
-            public function __construct(string $name, int $price) {
-                $this->name = $name;
-                $this->price = $price;
-            }
+$food->show_price(250);
 
-            // メソッドを定義する
-            public function show_name() {
-                echo $this->name;
-            }
+$animal->show_height(60);
 
-            public function show_price() {
-                echo $this->price;
-            }
-        }
-
-        // インスタンス化する
-        $food = new Food('potato', 250);
-
-        // メソッドにアクセスして実行する
-        $food->show_name();
-        echo "<br>";
-        $food->show_price();
-
-        // インスタンス $food の各プロパティの値を出力する
-        echo "<br>";
-        print_r($food);
-        ?>
-    </p>
-</body>
-
-</html>
+?>
